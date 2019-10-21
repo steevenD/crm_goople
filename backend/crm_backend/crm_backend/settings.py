@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'crm_editor'
 ]
 
 MIDDLEWARE = [
@@ -69,6 +72,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'crm_backend.wsgi.application'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
