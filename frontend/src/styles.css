@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.center {
+  width: 50%;
+  margin: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mr-20 {
+ margin-right: 20px;
+}
+
+.ml-20 {
+ margin-left: 20px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}

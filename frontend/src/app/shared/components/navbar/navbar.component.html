@@ -1,0 +1,26 @@
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav" [containerInside]="false">
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" routerLink="/"><strong>CRM Revizor</strong></a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" routerLink="/salesShares">Gérer mon CRM</a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link">KPI</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li *ngIf="!userConnected" class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" routerLink="/login">Se Connecter KEY</a>
+            </li>
+            <li *ngIf="!userConnected" class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" routerLink="/register">S'inscrire KEY</a>
+            </li>
+            <li *ngIf="userConnected" (click)="handleClickLogout()" class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link">Se déconnecter KEY</a>
+            </li>
+        </ul>
+    </links>
+</mdb-navbar>
