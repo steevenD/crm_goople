@@ -1,0 +1,23 @@
+<div *ngIf="form" class="center">
+  <p>Se connecter KEY</p>
+
+  <app-input
+    [fGroup]="form"
+    [fControl]="form.get('username')"
+    [icon]="'id-badge'"
+    [placeholder]="'Username KEY'"
+    [type]="'text'"
+  ></app-input>
+
+  <app-input
+    [fGroup]="form"
+    [fControl]="form.get('password')"
+    [icon]="'lock'"
+    [placeholder]="'mot de passe KEY'"
+    [type]="'password'"
+  ></app-input>
+
+  <div class="text-center">
+    <button (click)="handleClickLogin()" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect>Se connecter KEY</button>
+  </div>
+</div>

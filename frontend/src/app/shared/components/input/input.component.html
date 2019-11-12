@@ -1,0 +1,9 @@
+<div *ngIf="fGroup" [formGroup]="fGroup" class="md-form" [class.mt-50]="type == 'date'">
+    <mdb-icon fas icon="{{icon}}" class="prefix"></mdb-icon>
+    <input id="{{id}}" mdbInput mdbValidate [formControl]="fControl"  type="{{type}}" class="form-control">
+    <label for="{{id}}">{{placeholder}}</label>
+
+  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('required')">Erreur Required KEY</mdb-error>
+  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('maxlength')">Erreur Length KEY</mdb-error>
+
+</div>

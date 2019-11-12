@@ -20,7 +20,7 @@ from rest_framework.authtoken import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     ## path('api-token-auth/', views.obtain_auth_token, name='api-token-auth'),
-    path('authentication/', include('crm_authentication.urls')),
+    path('api/authentication/', include('crm_authentication.urls')),
     path('api/', include('crm_editor.urls')),
 
 ]

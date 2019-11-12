@@ -17,13 +17,16 @@ class Register(generics.CreateAPIView):
         #username = request.POST.get('username')
         username = request.data['username']
         password = request.data['password']
-        first_name = request.data['first_name']
-        last_name = request.data['last_name']
+        email = request.data['email']
 
-        user = User.objects.create_user(username, None, password)
+        # first_name = request.data['first_name']
+        # last_name = request.data['last_name']
 
-        user.first_name = first_name
-        user.last_name = last_name
+        user = User.objects.create_user(username, email, password)
+
+        # user.first_name = None
+        # user.last_name = None
+
         user.save()
 
         token = Token.objects.create(user=user)

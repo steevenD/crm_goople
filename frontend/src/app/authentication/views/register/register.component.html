@@ -1,0 +1,37 @@
+<div *ngIf="form" class="center">
+  <p class="text-center">S'inscrire KEY</p>
+  <app-input
+    [fGroup]="form"
+    [fControl]="form.get('username')"
+    [icon]="'id-badge'"
+    [placeholder]="'Username KEY'"
+    [type]="'text'"
+  ></app-input>
+
+  <app-input
+    [fGroup]="form"
+    [fControl]="form.get('email')"
+    [icon]="'envelope'"
+    [placeholder]="'mail KEY'"
+    [type]="'email'"
+  ></app-input>
+
+  <app-input
+    [fGroup]="form"
+    [fControl]="form.get('password')"
+    [icon]="'lock'"
+    [placeholder]="'mot de passe KEY'"
+    [type]="'password'"
+  ></app-input>
+
+  <app-input
+    [fGroup]="form"
+    [fControl]="form.get('confirm_password')"
+    [icon]="'lock'"
+    [placeholder]="'confirmer mot de passe KEY'"
+    [type]="'password'"
+  ></app-input>
+  <div class="text-center">
+    <button (click)="handleClickRegister()" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect>S'inscrire KEY</button>
+  </div>
+</div>
