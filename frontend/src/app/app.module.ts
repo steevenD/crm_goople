@@ -33,7 +33,10 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     InputComponent,
     LoginComponent,
     SalesSharesComponent,
-    AddSalesComponent
+    AddSalesComponent,
+    KpiComponent,
+    SalesTabComponent,
+    RowTabComponent
   ],
   imports: [
     BrowserModule,
