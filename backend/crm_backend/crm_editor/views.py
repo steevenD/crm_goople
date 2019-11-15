@@ -1,29 +1,70 @@
 from django.shortcuts import render
-from crm_editor.serializers import SaleSerializer, SchoolSerializer
+from crm_editor.serializers import SaleSerializer, SchoolSerializer, AttachmentSerializer
 from rest_framework.decorators import parser_classes
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics, permissions
-from rest_framework.parsers import JSONParser
-from .models import Sale, School
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
+from .models import Sale, School, Attachment
+from django.core.files.base import ContentFile
+import base64
+import uuid
+import datetime
 
 # Create your views here.
 class CreateGetAllSale(generics.CreateAPIView):
     #todo must be authenticate permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     permission_classes = (permissions.AllowAny,)
-    @parser_classes((JSONParser,)) 
+    @parser_classes((JSONParser, FormParser, MultiPartParser)) 
+
+
     def post(self, request):
-        schoolSerializer = SchoolSerializer(data=request.data['school'])
+
+        schoolSerializer = SchoolSerializer(data=request.data['saleShare']['school'])
         if schoolSerializer.is_valid():
             schoolSerializer.save()
 
             lastInsert = School.objects.latest('id').id
-            request.data['school'] = lastInsert
-            serializer = SaleSerializer(data=request.data)
+            request.data['saleShare']['school'] = lastInsert
+            serializer = SaleSerializer(data=request.data['saleShare'])
+
+            request.data['saleShare']['dt_created'] = datetime.datetime.now()
+
             if serializer.is_valid():
                 serializer.save()
+                lastSale = Sale.objects.latest('id').id
+
+                if request.data['attachments']:
+                    for attachment in request.data['attachments']:
+                        file_obj = attachment['file']
+
+                        if 'data:' in file_obj and ';base64,' in file_obj:
+                            header, data = file_obj.split(';base64,')
+
+                        try:
+                            decoded_file = base64.b64decode(file_obj)
+                            # print(sdecoded_file)
+
+                        except TypeError:
+                            self.fail('invalid_image')
+
+                        file_name = attachment['name'] + str(uuid.uuid4())[:12] # 12 characters are more than enough.
+                        file_extension = ".pdf"
+                        complete_file_name = "%s.%s" % (file_name, file_extension, )
+                        data = ContentFile(decoded_file, name=complete_file_name)
+
+                        request.data['attachments'] = {
+                            'attachment': data,
+                            'sale': lastSale
+                        }
+                        attachmentSerializer = AttachmentSerializer(data=request.data['attachments'])
+                        print(attachmentSerializer.is_valid())
+                        if attachmentSerializer.is_valid():
+                            attachmentSerializer.save()
+
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, 
@@ -73,15 +114,17 @@ class UpdateGetDeleteSale(generics.CreateAPIView):
             schoolSerializer.save()
 
         request.data['school'] = idSchool
+
         serializer = SaleSerializer(sale, data=request.data)
+        print(request.data)
+        print(serializer.is_valid())
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        print("rrrrr")
-        print(pk)
+       
         # idSchool = Sale.objects.get(pk=pk).school.id
         # school = School.objects.get(pk=idSchool)
         # school.delete()
@@ -89,3 +132,4 @@ class UpdateGetDeleteSale(generics.CreateAPIView):
         sale = Sale.objects.get(pk=pk)
         sale.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+

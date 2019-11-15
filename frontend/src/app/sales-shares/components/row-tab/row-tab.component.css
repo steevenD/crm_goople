@@ -1,0 +1,20 @@
+.td-input-text {
+  width: 120px;
+  padding: 3px;
+}
+
+
+.td-amount {
+  width: 65px;
+}
+
+.icon-delete {
+  color: red;
+  cursor: pointer;
+
+}
+
+td {
+  vertical-align: middle;
+  border: solid 2px lightgray;
+}

@@ -14,6 +14,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { SalesSharesComponent } from './sales-shares/views/sales-shares/sales-shares.component';
 import { AddSalesComponent } from './sales-shares/components/add-sales/add-sales.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SalesTabComponent } from './sales-shares/components/sales-tab/sales-tab.component';
+import { RowTabComponent } from './sales-shares/components/row-tab/row-tab.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     InputComponent,
     LoginComponent,
     SalesSharesComponent,
-    AddSalesComponent
+    AddSalesComponent,
+    SalesTabComponent,
+    RowTabComponent
   ],
   imports: [
     BrowserModule,
