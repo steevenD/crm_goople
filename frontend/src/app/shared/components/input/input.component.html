@@ -1,5 +1,5 @@
 <div *ngIf="fGroup" [formGroup]="fGroup" class="md-form" [class.mt-50]="type == 'date'">
-    <mdb-icon fas icon="{{icon}}" class="prefix"></mdb-icon>
+    <mdb-icon *ngIf="icon" fas icon="{{icon}}" class="prefix"></mdb-icon>
     <input id="{{id}}" mdbInput mdbValidate [formControl]="fControl"  type="{{type}}" class="form-control">
     <label for="{{id}}">{{placeholder}}</label>
 

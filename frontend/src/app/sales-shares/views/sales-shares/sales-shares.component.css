@@ -1,0 +1,12 @@
+.contain-title {
+  margin: 5px 0;
+}
+
+.title {
+  flex-basis: 75%;
+  align-self: flex-end;
+}
+
+.btn-add {
+  width: 50%;
+}

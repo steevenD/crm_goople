@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from crm_editor.models import Sale, School
+from crm_editor.models import Sale, School, Attachment
 
 class SchoolSerializer(serializers.ModelSerializer):
     # name = serializers.CharField(max_length=255)
@@ -12,6 +12,16 @@ class SchoolSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return School.objects.create(**validated_data)
+
+class AttachmentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Attachment
+        fields = '__all__'
+
+    def create(self, validated_data):
+        return Attachment.objects.create(**validated_data)
+
 
 class SaleSerializer(serializers.ModelSerializer):
     # dt_created = serializers.DateTimeField()
@@ -29,7 +39,7 @@ class SaleSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        print(validated_data)
+        # print(validated_data)
         return Sale.objects.create(**validated_data)
         
     def update(self, instance, validated_data):

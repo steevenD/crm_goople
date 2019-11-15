@@ -12,7 +12,7 @@
         </button>
       </div>
       <div class="modal-body mx-3">
-        <div class="md-form mb-5 flex" [formGroup]="form">
+        <div class="md-form mb-5 flex mb-0" [formGroup]="form">
           <div class="w-50 mr-20">
             <app-input
               [fGroup]="form"
@@ -45,7 +45,6 @@
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_state">
               <option value="" disabled selected>Choose le status de la vente KEY</option>
               <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}">{{saleState.label}}</option>
-
             </select>
           </div>
           <div class="w-50 ml-20 right-part">
@@ -68,17 +67,25 @@
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_action_state">
               <option value="" disabled selected>Choose le status de la vente KEY</option>
               <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}">{{saleAS.label}}</option>
-
             </select>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile">
+            <div class="custom-file" *ngIf="attachments.length < 3">
+              <input type="file" class="custom-file-input" (change)="onFileChange($event)" id="customFile">
               <label class="custom-file-label" for="customFile">Choose file KEY</label>
+            </div>
+            <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3">
+              3 pieces jointes maximums KEY
             </div>
           </div>
         </div>
       </div>
+      <div class="flex jc-sa">
+        <div class="flex" *ngFor="let attachment of attachments; let i=index">
+          <div class="attachmentName">{{attachment.name}}</div>
+          <mdb-icon (click)="handleClickDelete(i)" fas icon="times" class="prefix icon"></mdb-icon>
+        </div>
+      </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
+        <button mdbBtn (click)="handleClickAddSale(); frame.hide();" color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
       </div>
     </div>
   </div>

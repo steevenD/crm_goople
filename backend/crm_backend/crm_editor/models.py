@@ -36,13 +36,19 @@ class Sale(models.Model):
     )
     id = models.AutoField(primary_key=True)
     dt_created = models.DateTimeField(default=None, blank=True, null=True)
-    dt_update = models.DateTimeField(default=None, blank=True, null=True)
+    dt_update = models.DateTimeField(blank=True, null=True,auto_now=True)
     amount_signed = models.FloatField(default=None, blank=True, null=True)
-    dt_next_action = models.DateTimeField(default=None, blank=True, null=True)
-    comment = models.CharField(max_length=255)
-    sale_state = models.CharField(max_length=35, choices=SALE_STATE, default=None, blank=True, null=True)
-    sale_source = models.CharField(max_length=35, choices=SALE_SOURCE, default=None, blank=True, null=True)
-    sale_action_state = models.CharField(max_length=35, choices=SALE_ACTION_STATE, default=None, blank=True, null=True)
+    dt_next_action = models.DateField(default=None, blank=True, null=True)
+    comment = models.CharField(max_length=255, default=None, blank=True, null=True)
+    sale_state = models.CharField(max_length=35, choices=SALE_STATE,default=None, blank=True, null=True)
+    sale_source = models.CharField(max_length=35, choices=SALE_SOURCE,default=None, blank=True, null=True)
+    sale_action_state = models.CharField(max_length=35, choices=SALE_ACTION_STATE,default=None, blank=True, null=True)
+    # attachment = models.FileField(default=None, blank=True, null=True, upload_to='crm_editor/attachments/')
     school = models.ForeignKey(School,null=True,on_delete=models.CASCADE,related_name='sales') 
 
 
+
+class Attachment(models.Model):
+    id = models.AutoField(primary_key=True)
+    attachment = models.FileField(default=None, blank=True, null=True, upload_to='crm_editor/attachments/')
+    sale = models.ForeignKey(Sale, null=True, on_delete=models.CASCADE, related_name='attachments')
