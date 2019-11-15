@@ -1,12 +1,12 @@
 <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
-        (click)="frame.show()" mdbWavesEffect>Ajouter action de vente KEY</button>
+        (click)="frame.show()" mdbWavesEffect i18n>Ajouter action de vente</button>
 
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Ajouter une action de vente KEY</h4>
+        <h4 class="modal-title w-100 font-weight-bold" i18n>Ajouter une action de vente</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,32 +18,32 @@
               [fGroup]="form"
               [fControl]="form.get('name')"
               [icon]="'school'"
-              [placeholder]="'name school KEY'"
+              [placeholder]="'name school'"
               [type]="'text'"
             ></app-input>
             <app-input
               [fGroup]="form"
               [fControl]="form.get('contact_firstname')"
               [icon]="'address-card'"
-              [placeholder]="'contact_firstname school KEY'"
+              [placeholder]="'contact_firstname school'"
               [type]="'text'"
             ></app-input>
             <app-input
               [fGroup]="form"
               [fControl]="form.get('contact_lastname')"
               [icon]="'address-card'"
-              [placeholder]="'contact_lastname school KEY'"
+              [placeholder]="'contact_lastname school'"
               [type]="'text'"
             ></app-input>
             <app-input
               [fGroup]="form"
               [fControl]="form.get('dt_next_action')"
               [icon]="'calendar-week'"
-              [placeholder]="'dt_next_action KEY'"
+              [placeholder]="'dt_next_action'"
               [type]="'date'"
             ></app-input>
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_state">
-              <option value="" disabled selected>Choose le status de la vente KEY</option>
+              <option value="" disabled selected i18n>Choose le status de la vente</option>
               <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}">{{saleState.label}}</option>
             </select>
           </div>
@@ -52,20 +52,20 @@
               [fGroup]="form"
               [fControl]="form.get('amount_signed')"
               [icon]="'euro-sign'"
-              [placeholder]="'amount_signed KEY'"
+              [placeholder]="'amount_signed'"
               [type]="'text'"
             ></app-input>
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_source">
-              <option value="" disabled selected>Choose le status de la vente KEY</option>
+              <option value="" disabled selected i18n>Choose le status de la vente</option>
               <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}">{{saleS.label}}</option>
             </select>
             <div class="md-form">
               <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon>
               <textarea type="text" id="form8" class="md-textarea form-control" formControlName="comment" mdbInput></textarea>
-              <label for="form8">Comment KEY</label>
+              <label for="form8" i18n>Comment</label>
             </div>
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_action_state">
-              <option value="" disabled selected>Choose le status de la vente KEY</option>
+              <option value="" disabled selected i18n>Choose le status de la vente</option>
               <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}">{{saleAS.label}}</option>
             </select>
             <div class="custom-file" *ngIf="attachments.length < 3">
@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn (click)="handleClickAddSale(); frame.hide();" color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
       </div>
     </div>
   </div>
