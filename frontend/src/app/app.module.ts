@@ -14,8 +14,15 @@ import {HttpClientModule} from "@angular/common/http";
 import { SalesSharesComponent } from './sales-shares/views/sales-shares/sales-shares.component';
 import { AddSalesComponent } from './sales-shares/components/add-sales/add-sales.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { KpiComponent } from './kpi/kpi.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeFrExtra from '@angular/common/locales/extra/fr';
 import { SalesTabComponent } from './sales-shares/components/sales-tab/sales-tab.component';
 import { RowTabComponent } from './sales-shares/components/row-tab/row-tab.component';
+
+registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
+
 
 @NgModule({
   declarations: [
@@ -26,9 +33,7 @@ import { RowTabComponent } from './sales-shares/components/row-tab/row-tab.compo
     InputComponent,
     LoginComponent,
     SalesSharesComponent,
-    AddSalesComponent,
-    SalesTabComponent,
-    RowTabComponent
+    AddSalesComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { RowTabComponent } from './sales-shares/components/row-tab/row-tab.compo
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,11 @@
 <div *ngIf="form" class="center">
-  <p>Se connecter KEY</p>
+  <p i18n>Se connecter</p>
 
   <app-input
     [fGroup]="form"
     [fControl]="form.get('username')"
     [icon]="'id-badge'"
-    [placeholder]="'Username KEY'"
+    [placeholder]="'Username'"
     [type]="'text'"
   ></app-input>
 
@@ -13,11 +13,11 @@
     [fGroup]="form"
     [fControl]="form.get('password')"
     [icon]="'lock'"
-    [placeholder]="'mot de passe KEY'"
+    [placeholder]="'mot de passe'"
     [type]="'password'"
   ></app-input>
 
   <div class="text-center">
-    <button (click)="handleClickLogin()" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect>Se connecter KEY</button>
+    <button (click)="handleClickLogin()" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect i18n>Se connecter</button>
   </div>
 </div>
