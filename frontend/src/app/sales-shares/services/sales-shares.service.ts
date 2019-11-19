@@ -21,10 +21,10 @@ export class SalesSharesService {
       name: ['', [Validators.required, Validators.maxLength(25)]],
       contact_firstname: ['', [Validators.required, Validators.maxLength(25)]],
       contact_lastname: ['', [Validators.required, Validators.maxLength(25)]],
-      amount_signed: ['', [Validators.pattern('"^[0-9]*$"')]],
+      amount_signed: ['', [Validators.pattern('^[0-9]*$')]],
       sale_source: ['', [Validators.required]],
       sale_state: ['', [Validators.required]],
-      dt_next_action: ['', [Validators.required]],
+      dt_next_action: [''],
       // attachment: this.fb.array([ this.attachmentForm() ]),
       comment: ['', [Validators.maxLength(255)]],
       sale_action_state: ['', [Validators.required]],
@@ -99,6 +99,10 @@ export class SalesSharesService {
     return this.http.get<SaleShare[]>(`${urlAPI}/editor_crm/`, httpOptions);
   }
 
+  getAttachmentsBySaleID(saleId: number) {
+    return this.http.get<any[]>(`${urlAPI}/attachments/${saleId}`, httpOptions);
+  }
+
   updateSale(id: number, saleShareForm: any) {
     let saleShare = this.transformSaleShareFormToSaleShare(saleShareForm);
     return this.http.put<SaleShare>(`${urlAPI}/editor_crm/${id}`, saleShare , httpOptions);
@@ -106,6 +110,11 @@ export class SalesSharesService {
 
   deleteSaleShare(id: number) {
     return this.http.delete<any>(`${urlAPI}/editor_crm/${id}`, httpOptions);
+  }
+
+  deleteAttachment(id: number) {
+    alert('dff');
+    return this.http.delete<any>(`${urlAPI}/attachments/${id}`, httpOptions);
   }
 
 }

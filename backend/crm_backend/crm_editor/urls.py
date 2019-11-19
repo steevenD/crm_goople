@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('editor_crm/', views.CreateGetAllSale.as_view()),
-    path('editor_crm/<int:pk>', views.UpdateGetDeleteSale.as_view())
+    path('editor_crm/<int:pk>', views.UpdateGetDeleteSale.as_view()),
+    path('attachments/<int:idSale>', views.GetDeleteAttachments.as_view()),
 
 ]

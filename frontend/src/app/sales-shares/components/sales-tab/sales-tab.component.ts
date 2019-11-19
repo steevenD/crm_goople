@@ -11,7 +11,7 @@ import {FormGroup} from '@angular/forms';
 export class SalesTabComponent implements OnInit {
   editField: string;
   saleShareList: Array<SaleShare> = [];
-
+  displayAlert = false;
   fGroup: FormGroup;
 
   constructor(private saleService: SalesSharesService){}
@@ -51,5 +51,9 @@ export class SalesTabComponent implements OnInit {
     if ($event) {
       this.getAllSaleShare();
     }
+  }
+
+  handleDisplayAlert($event) {
+    this.displayAlert = $event;
   }
 }

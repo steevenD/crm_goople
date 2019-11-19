@@ -3,3 +3,10 @@ th {
   border: solid 2px lightgray;
 }
 
+.alert {
+  position: fixed;
+  width: 300px;
+  text-align: center;
+  transform: translateX(-50%);
+  left: 50%;
+}
