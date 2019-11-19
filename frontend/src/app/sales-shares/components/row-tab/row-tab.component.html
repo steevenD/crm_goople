@@ -1,22 +1,3 @@
-<!--<td><input formControlName="name" (keyup)="changeValue(saleShare.id, 'name', $event)" (blur)="updateList(saleShare.id, 'name', $event)" contenteditable="true"/></td>-->
-<!--<td><input formControlName="contact_firstname" (keyup)="changeValue(saleShare.id, 'name', $event)" (blur)="updateList(saleShare.id, 'name', $event)" contenteditable="true"/></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.school?.contact_firstname}}</span></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.school?.contact_lastname}}</span></td>-->
-<!--<td><select placeholder="Status de la vente key" class="browser-default custom-select">-->
-  <!--<option value="{{saleShare.sale_action_state}}" disabled selected>{{saleShare.sale_action_state}} TRAD</option>-->
-  <!--<option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}">{{saleAS.label}}</option>-->
-<!--</select></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.sale_source}}</span></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.sale_state}}</span></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.dt_next_action}}</span></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.amount_signed}}</span></td>-->
-<!--<td><span>{{saleShare.dt_update}} / {{saleShare.dt_created}}</span></td>-->
-<!--<td><span contenteditable="true" (keyup)="changeValue(saleShare.id, 'age', $event)" (blur)="updateList(saleShare.id, 'age', $event)">{{saleShare.comment}}</span></td>-->
-<!--<td>-->
-            <!--<span class="table-remove">-->
-              <!--<button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>-->
-            <!--</span>-->
-<!--</td>-->
 <ng-container [formGroup]="form">
 <td class="td-input-text">
   <app-input
@@ -32,9 +13,7 @@
     [fControl]="form.get('contact_firstname')"
     [type]="'text'"
   ></app-input>
-</td>
 
-<td class="td-input-text">
   <app-input
     [fGroup]="form"
     [fControl]="form.get('contact_lastname')"
@@ -42,23 +21,24 @@
   ></app-input>
 </td>
 
+<!--<td class="td-input-text">-->
+
+<!--</td>-->
+
 <td>
   <select class="browser-default custom-select" formControlName="sale_action_state">
-    <!--<option value="{{form.get('sale_action_state').value}}" disabled selected>{{form.get('sale_action_state').value}}</option>-->
     <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}">{{saleAS.label}}</option>
   </select>
 </td>
 
 <td>
   <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_source">
-    <option value="" disabled selected>Choose le status de la vente KEY</option>
     <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}">{{saleS.label}}</option>
   </select>
 </td>
 
 <td>
   <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_state">
-    <option value="" disabled selected>Choose le status de la vente KEY</option>
     <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}">{{saleState.label}}</option>
   </select>
 </td>
@@ -84,7 +64,7 @@
     <div>{{saleShare.dt_created}}</div>
     <br>
     <b>Modifié :</b>
-    <div>{{saleShare.dt_update}}</div>
+    <div *ngIf="saleShare.dt_update != saleShare.dt_created">{{saleShare.dt_update}}</div>
   </td>
 
   <td class="td-input-text">
@@ -92,7 +72,12 @@
       <textarea type="text" id="form8" class="md-textarea form-control" formControlName="comment" mdbInput></textarea>
     </div>
   </td>
-  <td></td>
+  <td>
+    <div *ngFor="let a of attachments" class="flex">
+      <span class="attachment" (click)="downloadFile(a.attachment, a.name.substr(23))">{{a.name.substr(23)}}</span>
+      <mdb-icon (click)="handleClickDeleteAttachment(a)"  fas icon="times-circle" class="prefix icon-delete"></mdb-icon>
+    </div>
+  </td>
   <td>
     <mdb-icon (click)="handleClickDelete()"  fas icon="times-circle" class="prefix icon-delete"></mdb-icon>
   </td>

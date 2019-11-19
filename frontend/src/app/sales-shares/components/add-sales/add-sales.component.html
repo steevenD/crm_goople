@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
+        <button mdbBtn [disabled]="form.invalid" (click)="handleClickAddSale(); frame.hide();" color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
       </div>
     </div>
   </div>

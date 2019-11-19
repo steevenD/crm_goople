@@ -11,10 +11,27 @@
 .icon-delete {
   color: red;
   cursor: pointer;
-
+  align-self: center;
 }
 
 td {
   vertical-align: middle;
   border: solid 2px lightgray;
+}
+
+.attachment {
+  color: blue;
+  cursor: pointer;
+  overflow: hidden;
+  width: 150px;
+  text-overflow: ellipsis;
+}
+
+.attachment:hover {
+  text-decoration: underline;
+}
+
+.td-attachments {
+  max-width: 200px;
+  padding: 0;
 }

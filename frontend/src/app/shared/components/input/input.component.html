@@ -3,7 +3,8 @@
     <input id="{{id}}" mdbInput mdbValidate [formControl]="fControl"  type="{{type}}" class="form-control">
     <label for="{{id}}">{{placeholder}}</label>
 
-  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('required')" i18n>Erreur Required</mdb-error>
-  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('maxlength')" i18n>Erreur Length</mdb-error>
+  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('required')">Erreur Required KEY</mdb-error>
+  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('maxlength')">Erreur Length KEY</mdb-error>
+  <mdb-error *ngIf="fControl.invalid && (fControl.dirty || fControl.touched) && fControl.hasError('pattern')">Erreur Chifre KEY</mdb-error>
 
 </div>

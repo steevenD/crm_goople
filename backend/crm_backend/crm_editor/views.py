@@ -7,6 +7,7 @@ from rest_framework import generics, permissions
 from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 from .models import Sale, School, Attachment
 from django.core.files.base import ContentFile
+import json
 import base64
 import uuid
 import datetime
@@ -23,7 +24,7 @@ class CreateGetAllSale(generics.CreateAPIView):
         schoolSerializer = SchoolSerializer(data=request.data['saleShare']['school'])
         if schoolSerializer.is_valid():
             schoolSerializer.save()
-
+            data = ""
             lastInsert = School.objects.latest('id').id
             request.data['saleShare']['school'] = lastInsert
             serializer = SaleSerializer(data=request.data['saleShare'])
@@ -43,15 +44,16 @@ class CreateGetAllSale(generics.CreateAPIView):
 
                         try:
                             decoded_file = base64.b64decode(file_obj)
-                            # print(sdecoded_file)
 
                         except TypeError:
                             self.fail('invalid_image')
-
-                        file_name = attachment['name'] + str(uuid.uuid4())[:12] # 12 characters are more than enough.
-                        file_extension = ".pdf"
-                        complete_file_name = "%s.%s" % (file_name, file_extension, )
+                        
+                        d = data
+                        # file_name = attachment['name'] + str(uuid.uuid4())[:12] # 12 characters are more than enough.
+                        file_name = attachment['name']
+                        complete_file_name = "%s" % (file_name)
                         data = ContentFile(decoded_file, name=complete_file_name)
+                        print(d)
 
                         request.data['attachments'] = {
                             'attachment': data,
@@ -133,3 +135,30 @@ class UpdateGetDeleteSale(generics.CreateAPIView):
         sale.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+class GetDeleteAttachments(generics.CreateAPIView):
+    permission_classes = (permissions.AllowAny,)
+    @parser_classes((JSONParser,)) 
+
+    def get(self, request, idSale):
+     
+        listAttachments = Attachment.objects.filter(sale_id=idSale)
+        toReturn = []
+        for a in listAttachments:
+            d = AttachmentSerializer(a).data
+
+            name = d["attachment"]
+            with open(d["attachment"], "rb") as pdf_file:
+                encoded_string = base64.b64encode(pdf_file.read())
+                a = encoded_string
+                d["attachment"] = a
+                d["name"] = name
+                toReturn.append(d)
+
+        return Response(toReturn, content_type="application/json")
+
+
+    def delete(self, request, idSale):
+
+        attachment = Attachment.objects.get(pk=idSale)
+        attachment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

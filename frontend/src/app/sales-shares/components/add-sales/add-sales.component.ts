@@ -55,12 +55,23 @@ export class AddSalesComponent implements OnInit {
           file : reader.result
         });
 
-        console.log(this.attachments);
+        // this.downloadFile(reader.result);
         // need to run CD since file load runs outside of zone
         this.cd.markForCheck();
       };
     }
   }
+
+
+  downloadFile(data) {
+    const downloadLink = document.createElement("a");
+    const fileName = "sample.pdf";
+
+    downloadLink.href = data;
+    downloadLink.download = fileName;
+    downloadLink.click();
+  }
+
 
   handleClickAddSale() {
     this.salesSharesService.addSaleShare(this.form.value, this.attachments).subscribe(() => {

@@ -14,9 +14,11 @@ export class RowTabComponent implements OnInit {
   saleActionStateTab: any[];
   saleStateTab: any[];
   saleSourceTab: any[];
+  attachments: any[];
 
   @Input() saleShare: SaleShare;
   @Output() notifyDelete = new EventEmitter(false);
+  @Output() displayAlert = new EventEmitter(false);
 
   form: FormGroup;
 
@@ -29,7 +31,6 @@ export class RowTabComponent implements OnInit {
 
     this.form = this.saleService.generateFormAddSale();
 
-    console.log(this.saleShare.dt_created);
     this.saleShare.dt_created = moment(this.saleShare.dt_created.substr(0, 19)).format('D/MM/YYYY HH:mm:ss');
     this.saleShare.dt_update = moment().format('D/MM/YYYY HH:mm:ss');
 
@@ -48,14 +49,44 @@ export class RowTabComponent implements OnInit {
     this.form.get('dt_next_action').setValue(this.saleShare.dt_next_action);
     this.form.get('amount_signed').setValue(this.saleShare.amount_signed);
     this.form.get('comment').setValue(this.saleShare.comment);
+
+    this.saleService.getAttachmentsBySaleID(this.saleShare.id).subscribe((attachments) => {
+      this.attachments = attachments;
+    });
+  }
+
+
+  downloadFile(data, nameFile: string) {
+    const file = 'data:application/pdf;base64,' + data.substr(25);
+
+    const downloadLink = document.createElement("a");
+
+    downloadLink.href = file;
+    downloadLink.download = nameFile;
+    downloadLink.click();
   }
 
   followFormChanged() {
     this.form.valueChanges.subscribe(() => {
-      this.saleService.updateSale(this.saleShare.id, this.form.value).subscribe(() => {
-        this.saleShare.dt_update = moment().format('D/MM/YYYY HH:mm:ss');
-      });
+      if (this.form.valid) {
+        this.saleService.updateSale(this.saleShare.id, this.form.value).subscribe(() => {
+          this.saleShare.dt_update = moment().format('D/MM/YYYY HH:mm:ss');
+        });
+      } else {
+        this.displayAlert.emit(true);
+        setTimeout(() => {
+          this.displayAlert.emit(false);
+        }, 2000);
+      }
     });
+  }
+
+  handleClickDeleteAttachment(attachment: any){
+    console.log(attachment.id);
+    this.saleService.deleteAttachment(attachment.id).subscribe(() => {
+        this.notifyDelete.emit(true);
+      }, (err) => console.log(err),
+      () => this.notifyDelete.emit(false));
   }
 
   handleClickDelete() {
