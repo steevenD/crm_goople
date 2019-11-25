@@ -22,5 +22,7 @@ urlpatterns = [
     ## path('api-token-auth/', views.obtain_auth_token, name='api-token-auth'),
     path('api/authentication/', include('crm_authentication.urls')),
     path('api/', include('crm_editor.urls')),
+    path('api/', include('crm_analyzer.urls')),
+
 
 ]
