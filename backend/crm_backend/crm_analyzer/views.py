@@ -3,14 +3,17 @@ from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 from rest_framework import generics, permissions
 from rest_framework.decorators import parser_classes
 from crm_editor.serializers import SaleSerializer
+from crm_analyzer.serializers import ObjectifSerializer
 from crm_editor.models import Sale
+from .models import Objectif
+
 from rest_framework.response import Response
 
 
 from datetime import datetime, date
 
 # Create your views here.
-class GetDeleteAttachments(generics.CreateAPIView):
+class GetObjectif(generics.CreateAPIView):
     permission_classes = (permissions.AllowAny,)
     @parser_classes((JSONParser,)) 
 
@@ -101,3 +104,30 @@ class GetDeleteAttachments(generics.CreateAPIView):
     def date_n_month(self, n):
         import datetime
         return datetime.date.today() - datetime.timedelta(n*365/12)
+
+class UpdateObjectif(generics.CreateAPIView):
+
+    def verify_and_create_objectif(self, request, id):
+        objectif = None
+        try: 
+            objectif = Objectif.objects.get(pk=id)
+            return id
+        except Objectif.DoesNotExist:
+            serializer = ObjectifSerializer(objectif, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Objectif.objects.latest('id').id
+
+            
+    #todo must be authenticate permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
+    @parser_classes((JSONParser, FormParser, MultiPartParser)) 
+    def put(self, request, id_objectif):
+        identity_obj = self.verify_and_create_objectif(request, id_objectif)
+
+        objectif = Objectif.objects.get(pk=identity_obj)
+        serializer = ObjectifSerializer(objectif, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

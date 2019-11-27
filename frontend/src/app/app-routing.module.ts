@@ -4,7 +4,7 @@ import { HomeComponent } from 'src/app/home/views/home/home.component';
 import { RegisterComponent } from 'src/app/authentication/views/register/register.component';
 import {LoginComponent} from "./authentication/views/login/login.component";
 import {SalesSharesComponent} from './sales-shares/views/sales-shares/sales-shares.component';
-import { KpiComponent } from './kpi/kpi.component';
+import { KpiComponent } from './kpi/views/kpi/kpi.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent},

@@ -14,7 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { SalesSharesComponent } from './sales-shares/views/sales-shares/sales-shares.component';
 import { AddSalesComponent } from './sales-shares/components/add-sales/add-sales.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { KpiComponent } from './kpi/kpi.component';
+import { KpiComponent } from './kpi/views/kpi/kpi.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';

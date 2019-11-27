@@ -118,8 +118,6 @@ class UpdateGetDeleteSale(generics.CreateAPIView):
         request.data['school'] = idSchool
 
         serializer = SaleSerializer(sale, data=request.data)
-        print(request.data)
-        print(serializer.is_valid())
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

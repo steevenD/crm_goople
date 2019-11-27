@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KpiSale } from '../sales-shares/models/KpiSale'
+import {KpiSale} from '../../models/KpiSale';
 
 @Component({
   selector: 'app-kpi',
@@ -16,6 +16,7 @@ export class KpiComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
+  // todo key
   xAxisLabel = 'Mois';
   showYAxisLabel = true;
   yAxisLabel = '';
@@ -62,9 +63,10 @@ export class KpiComponent implements OnInit {
       earned_sales: 15,
       renounced_sales: 2
     }
-  ]
+  ];
 
   data = [];
+
   ngOnInit() {
   }
 
@@ -78,7 +80,7 @@ export class KpiComponent implements OnInit {
         name: sale.month.toLocaleString('default', { month: 'long', year: 'numeric'}),
         value: this.objectifs[index]
       })
-    })
+    });
     this.data = [
       {
         name: column,
