@@ -40,33 +40,33 @@ export class SalesSharesService {
 
   initSaleStateTab(): any[] {
     return [
-      { value: SALE_STATE.ABANDONMENT, label: 'SALE_STATE.ABANDONMENT KEY' },
-      { value: SALE_STATE.FIRST_CONTACT, label: 'SALE_STATE.FIRST KEY' },
-      { value: SALE_STATE.NEGOTIATION, label: 'SALE_STATE.NEGO KEY' },
-      { value: SALE_STATE.PROPOSAL, label: 'SALE_STATE.PROP KEY' },
-      { value: SALE_STATE.REFUSAL, label: 'SALE_STATE.REF KEY' },
-      { value: SALE_STATE.REVIVAL, label: 'SALE_STATE.REVV KEY' },
-      { value: SALE_STATE.WON, label: 'SALE_STATE.WON KEY' },
+      { value: SALE_STATE.ABANDONMENT, label: 'Abandon' },
+      { value: SALE_STATE.FIRST_CONTACT, label: 'Premier contact' },
+      { value: SALE_STATE.NEGOTIATION, label: 'Négotiation' },
+      { value: SALE_STATE.PROPOSAL, label: 'Proposition' },
+      { value: SALE_STATE.REFUSAL, label: 'Refus' },
+      { value: SALE_STATE.REVIVAL, label: 'Relance' },
+      { value: SALE_STATE.WON, label: 'Gagné' },
     ];
   }
 
   initSaleSourceTab(): any[] {
     return [
-      { value: SALE_SOURCE.CANVASSING, label: 'SALE_SOURCE.CANVASSING KEY' },
-      { value: SALE_SOURCE.INCOMING_CALL, label: 'SALE_SOURCE.INCOMING KEY' },
-      { value: SALE_SOURCE.LOUNGE, label: 'SALE_SOURCE.LOUNG KEY' },
-      { value: SALE_SOURCE.NETWORK, label: 'SALE_SOURCE.NET KEY' },
-      { value: SALE_SOURCE.WORD_OF_MOUTH, label: 'SALE_SOURCE.WORD KEY' },
+      { value: SALE_SOURCE.CANVASSING, label: 'Démarchage' },
+      { value: SALE_SOURCE.INCOMING_CALL, label: 'Appel entrant' },
+      { value: SALE_SOURCE.LOUNGE, label: 'Salon' },
+      { value: SALE_SOURCE.NETWORK, label: 'Réseau' },
+      { value: SALE_SOURCE.WORD_OF_MOUTH, label: 'Bouche à oreille' },
     ];
   }
 
   initSaleActionStateTab(): any[] {
     return [
-      { value: SALE_ACTION_STATE.FINISH, label: 'SALE_ACTION_STATE.FINISH KEY' },
-      { value: SALE_ACTION_STATE.IN_PROGRESS, label: 'SALE_ACTION_STATE.IN PRO KEY' },
-      { value: SALE_ACTION_STATE.ON_BREAK, label: 'SALE_ACTION_STATE.ON BREAK KEY' },
-      { value: SALE_ACTION_STATE.STOP, label: 'SALE_ACTION_STATE.STOP KEY' },
-      { value: SALE_ACTION_STATE.TODO, label: 'SALE_ACTION_STATE.TODO KEY' },
+      { value: SALE_ACTION_STATE.FINISH, label: 'Fini' },
+      { value: SALE_ACTION_STATE.IN_PROGRESS, label: 'En cours' },
+      { value: SALE_ACTION_STATE.ON_BREAK, label: 'Pause' },
+      { value: SALE_ACTION_STATE.STOP, label: 'Stoppé' },
+      { value: SALE_ACTION_STATE.TODO, label: 'A faire' },
     ];
   }
 
