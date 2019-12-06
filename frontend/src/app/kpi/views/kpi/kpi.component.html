@@ -1,44 +1,37 @@
-<table class="table table-striped">
+<div>
+  <table class="table table-striped">
     <thead>
       <tr>
           <th></th>
           <th>Objectif</th>
-          <th *ngFor="let sale of sales;"> {{ sale.month.toLocaleString('default', { month: 'long', year: 'numeric'}) }}</th>
+          <th *ngFor="let stat of stats;"> {{ stat.month }}</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td (click)="setGraphBy('Montants signés', 0)">Montants signés</td>
-          <td>
-            <input (keydown)="setObjectif('signed_sales', 0, $event)"type="number" value="13000" />
-          </td>
-          <td *ngFor="let sale of sales">{{ sale.signed_sales }}</td>
+          <td><input (keyup)="handleKeyupSetGoal('signed_sales', 0, $event)" type="number" [value]="goals[0]"/></td>
+          <td *ngFor="let stat of stats">{{ stat.signed_sales }}</td>
         </tr>
         <tr>
           <td (click)="setGraphBy('Nombre de 1er contact', 1)">Nombre de 1er contact</td>
-          <td>
-            <input (keydown)="setObjectif('nb_contact', 1, $event)"type="number" value="10" />
-          </td>
-          <td *ngFor="let sale of sales">{{ sale.nb_contact }}</td>
+          <td><input (keyup)="handleKeyupSetGoal('nb_contact', 1, $event)" type="number" [value]="goals[1]"/></td>
+          <td *ngFor="let stat of stats">{{ stat.nb_contact }}</td>
         </tr>
         <tr>
           <td (click)="setGraphBy('Nombre de ventes gagnées', 2)">Nombre de ventes gagnées</td>
-          <td>
-            <input (keydown)="setObjectif('earned_sales', 2, $event)"type="number" value="10" />
-          </td>
-          <td *ngFor="let sale of sales">{{ sale.earned_sales }}</td>
+          <td><input (keyup)="handleKeyupSetGoal('earned_sales', 2, $event)" type="number" [value]="goals[2]"/></td>
+          <td *ngFor="let stat of stats">{{ stat.earned_sales }}</td>
         </tr>
         <tr>
           <td (click)="setGraphBy('Nombre de ventes abandonnées', 3)">Nombre de ventes abandonnées</td>
-          <td>
-              <input (keydown)="setObjectif('renounced_sales', 3, $event)"type="number" value="1" />
-          </td>
-          <td *ngFor="let sale of sales">{{ sale.renounced_sales }}</td>
+          <td><input (keyup)="handleKeyupSetGoal('renounced_sales', 3, $event)" type="number" [value]="goals[3]"/></td>
+          <td *ngFor="let stat of stats">{{ stat.renounced_sales }}</td>
         </tr>
     </tbody>
   </table>
 
-  <ngx-charts-area-chart
+  <ngx-charts-area-chart *ngIf="data.length > 0"
       [view]="view"
       [scheme]="colorScheme"
       [results]="data"
@@ -50,6 +43,6 @@
       [showYAxisLabel]="showYAxisLabel"
       [xAxisLabel]="xAxisLabel"
       [yAxisLabel]="yAxisLabel"
-      [autoScale]="autoScale"
-      (select)="onSelect($event)">
+      [autoScale]="autoScale">
     </ngx-charts-area-chart>
+</div>

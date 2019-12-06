@@ -72,8 +72,8 @@
               <input type="file" class="custom-file-input" (change)="onFileChange($event)" id="customFile">
               <label class="custom-file-label" for="customFile">Choose file KEY</label>
             </div>
-            <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3">
-              3 pieces jointes maximums KEY
+            <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3 || errorPDF">
+              3 pieces jointes maximums et PDF uniquement KEY
             </div>
           </div>
         </div>

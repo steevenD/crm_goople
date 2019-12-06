@@ -1,0 +1,15 @@
+
+:host {
+  position: fixed;
+  bottom: 150px;
+  z-index: 20;
+  left: 50%;
+  margin-left: -220px;
+}
+
+.toast-container {
+  display: table-cell;
+  vertical-align: middle;
+  width: 440px;
+  height: 64px;
+}

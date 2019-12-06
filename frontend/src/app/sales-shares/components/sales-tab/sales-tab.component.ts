@@ -9,7 +9,6 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./sales-tab.component.css']
 })
 export class SalesTabComponent implements OnInit {
-  editField: string;
   saleShareList: Array<SaleShare> = [];
   displayAlert = false;
   fGroup: FormGroup;
@@ -20,32 +19,15 @@ export class SalesTabComponent implements OnInit {
     this.getAllSaleShare();
     this.fGroup = this.saleService.generateFormAddSale();
 
-    this.fGroup.valueChanges.subscribe(value => console.log(value));
+    this.fGroup.valueChanges.subscribe();
   }
 
   getAllSaleShare() {
     this.saleService.getAllSaleShare().subscribe((saleShares) => {
-      console.log(saleShares);
       this.saleShareList = saleShares;
     });
   }
 
-  updateList(id: number, property: string, event: any) {
-    // const editField = event.target.textContent;
-    // this.saleShareList[id][property] = editField;
-    console.log(id);
-    this.getAllSaleShare();
-
-  }
-
-  remove(id: any) {
-    // this.awaitingPersonList.push(this.personList[id]);
-    this.saleShareList.splice(id, 1);
-  }
-
-  changeValue(id: number, property: string, event: any) {
-    // this.editField = event.target.textContent;
-  }
 
   handleNotifyRefresh($event) {
     if ($event) {

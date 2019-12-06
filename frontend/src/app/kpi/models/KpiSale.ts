@@ -1,6 +1,6 @@
 export class KpiSale {
 
-  month: Date;
+  month: string;
   signed_sales: Number;
   nb_contact: Number;
   earned_sales: Number;

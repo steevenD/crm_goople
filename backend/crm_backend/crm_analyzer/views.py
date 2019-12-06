@@ -6,6 +6,7 @@ from crm_editor.serializers import SaleSerializer
 from crm_analyzer.serializers import ObjectifSerializer
 from crm_editor.models import Sale
 from .models import Objectif
+from rest_framework import status
 
 from rest_framework.response import Response
 
@@ -13,7 +14,7 @@ from rest_framework.response import Response
 from datetime import datetime, date
 
 # Create your views here.
-class GetObjectif(generics.CreateAPIView):
+class GetStats(generics.CreateAPIView):
     permission_classes = (permissions.AllowAny,)
     @parser_classes((JSONParser,)) 
 
@@ -51,14 +52,14 @@ class GetObjectif(generics.CreateAPIView):
 
         
 
-        toRet = {
-            "month1": self.return_object_by_month(month_1, self.date_n_month(0).strftime("%Y-%m")),
-            "month2": self.return_object_by_month(month_2, self.date_n_month(1).strftime("%Y-%m")),
-            "month3": self.return_object_by_month(month_3, self.date_n_month(2).strftime("%Y-%m")),
-            "month4": self.return_object_by_month(month_4, self.date_n_month(3).strftime("%Y-%m")),
-            "month5": self.return_object_by_month(month_5, self.date_n_month(4).strftime("%Y-%m")),
-            "month6": self.return_object_by_month(month_6, self.date_n_month(5).strftime("%Y-%m"))
-        }
+        toRet = [
+            self.return_object_by_month(month_1, self.date_n_month(0).strftime("%Y-%m")),
+            self.return_object_by_month(month_2, self.date_n_month(1).strftime("%Y-%m")),
+            self.return_object_by_month(month_3, self.date_n_month(2).strftime("%Y-%m")),
+            self.return_object_by_month(month_4, self.date_n_month(3).strftime("%Y-%m")),
+            self.return_object_by_month(month_5, self.date_n_month(4).strftime("%Y-%m")),
+            self.return_object_by_month(month_6, self.date_n_month(5).strftime("%Y-%m"))
+        ]
 
         
         return Response(toRet)
@@ -105,29 +106,26 @@ class GetObjectif(generics.CreateAPIView):
         import datetime
         return datetime.date.today() - datetime.timedelta(n*365/12)
 
-class UpdateObjectif(generics.CreateAPIView):
-
-    def verify_and_create_objectif(self, request, id):
-        objectif = None
-        try: 
-            objectif = Objectif.objects.get(pk=id)
-            return id
-        except Objectif.DoesNotExist:
-            serializer = ObjectifSerializer(objectif, data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Objectif.objects.latest('id').id
-
+class UpdateGoal(generics.CreateAPIView):
             
     #todo must be authenticate permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     permission_classes = (permissions.AllowAny,)
     @parser_classes((JSONParser, FormParser, MultiPartParser)) 
-    def put(self, request, id_objectif):
-        identity_obj = self.verify_and_create_objectif(request, id_objectif)
+    def put(self, request, id_goal):
+        objectif = Objectif.objects.get(pk=id_goal)
 
-        objectif = Objectif.objects.get(pk=identity_obj)
         serializer = ObjectifSerializer(objectif, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class GetGoals(generics.CreateAPIView):
+    
+    #todo must be authenticate permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
+    @parser_classes((JSONParser, FormParser, MultiPartParser)) 
+    def get(self, request):
+        goals = Objectif.objects.all()
+        serializer = ObjectifSerializer(goals, many=True)
+        return Response(serializer.data)

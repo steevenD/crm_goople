@@ -4,6 +4,7 @@ import {FormGroup} from '@angular/forms';
 import {SaleShare} from '../../models/SaleShare';
 import {SALE_ACTION_STATE} from '../../models/enums';
 import * as moment from 'moment';
+import {InfoService} from '../../../shared/services/info.service';
 
 @Component({
   selector: '[app-row-tab]',
@@ -22,7 +23,7 @@ export class RowTabComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private saleService: SalesSharesService) { }
+  constructor(private saleService: SalesSharesService, private infoService: InfoService) { }
 
   ngOnInit() {
     this.saleActionStateTab = this.saleService.initSaleActionStateTab();
@@ -71,6 +72,7 @@ export class RowTabComponent implements OnInit {
       if (this.form.valid) {
         this.saleService.updateSale(this.saleShare.id, this.form.value).subscribe(() => {
           this.saleShare.dt_update = moment().format('D/MM/YYYY HH:mm:ss');
+          this.infoService.showToast('MiseAjour!!');
         });
       } else {
         this.displayAlert.emit(true);
@@ -82,9 +84,9 @@ export class RowTabComponent implements OnInit {
   }
 
   handleClickDeleteAttachment(attachment: any){
-    console.log(attachment.id);
     this.saleService.deleteAttachment(attachment.id).subscribe(() => {
         this.notifyDelete.emit(true);
+        this.infoService.showToast('SuprimerAtraduire!!');
       }, (err) => console.log(err),
       () => this.notifyDelete.emit(false));
   }
@@ -92,7 +94,8 @@ export class RowTabComponent implements OnInit {
   handleClickDelete() {
     this.saleService.deleteSaleShare(this.saleShare.id).subscribe(() => {
       this.notifyDelete.emit(true);
-    }, (err) => console.log(err),
+        this.infoService.showToast('SuprimerSaleAtraduire!!');
+      }, (err) => console.log(err),
       () => this.notifyDelete.emit(false));
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../authentication/services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   userConnected = false;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     if (localStorage.getItem('userToken')) {
@@ -33,6 +34,7 @@ export class NavbarComponent implements OnInit {
     this.userConnected = false;
     localStorage.clear();
     this.authService.setConnected(false);
+    this.router.navigate(['login']);
   }
 
 }

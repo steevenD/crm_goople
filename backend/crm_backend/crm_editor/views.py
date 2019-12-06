@@ -88,7 +88,7 @@ class CreateGetAllSale(generics.CreateAPIView):
 
 class UpdateGetDeleteSale(generics.CreateAPIView):
     
-    #todo must be authenticate permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticated,)
     permission_classes = (permissions.AllowAny,)
     @parser_classes((JSONParser,)) 
 

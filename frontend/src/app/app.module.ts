@@ -10,16 +10,21 @@ import { RegisterComponent } from './authentication/views/register/register.comp
 import { InputComponent } from './shared/components/input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './authentication/views/login/login.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { SalesSharesComponent } from './sales-shares/views/sales-shares/sales-shares.component';
 import { AddSalesComponent } from './sales-shares/components/add-sales/add-sales.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { KpiComponent } from './kpi/views/kpi/kpi.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';import { registerLocaleData } from '@angular/common';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import { SalesTabComponent } from './sales-shares/components/sales-tab/sales-tab.component';
 import { RowTabComponent } from './sales-shares/components/row-tab/row-tab.component';
+import { InfoAlertComponent } from './shared/components/info-alert/info-alert.component';
+import { InfoComponent } from './shared/components/info/info.component';
+import {InfoService} from './shared/services/info.service';
+import {InterceptorService} from './shared/services/interceptor.service';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -36,7 +41,9 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     AddSalesComponent,
     KpiComponent,
     SalesTabComponent,
-    RowTabComponent
+    RowTabComponent,
+    InfoAlertComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,7 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     HttpClientModule,
     NgxChartsModule
   ],
-  providers: [],
+  providers: [InfoService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

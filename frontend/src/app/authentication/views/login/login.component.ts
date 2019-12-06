@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  displayAlert = false;
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
@@ -22,11 +23,19 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.form.value).subscribe((jwtToken: any) => {
       localStorage.setItem('userToken', jwtToken.token);
       this.authenticationService.setConnected(true);
+      this.router.navigate(['salesShares']);
     },
       (err) => {
-      console.log(err);
-        this.authenticationService.setConnected(false);
+      this.displayAlertLogin();
+      this.authenticationService.setConnected(false);
 
       });
+  }
+
+  displayAlertLogin() {
+    this.displayAlert = true;
+    setTimeout(() => {
+      this.displayAlert = false;
+    }, 2000);
   }
 }

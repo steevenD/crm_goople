@@ -1,4 +1,7 @@
 <div *ngIf="form" class="center">
+  <div *ngIf="displayAlert" class="alert alert-danger" role="alert">
+    ERREUR KEY
+  </div>
   <p class="text-center" i18n>S'inscrire</p>
   <app-input
     [fGroup]="form"

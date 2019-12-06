@@ -3,7 +3,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    path('kpi/objectifs', views.GetObjectif.as_view()),
-    path('kpi/objectifs/<int:id_objectif>', views.UpdateObjectif.as_view()),
+    path('kpi/stats', views.GetStats.as_view()),
+    path('kpi/goal/<int:id_goal>', views.UpdateGoal.as_view()),
+    path('kpi/goals', views.GetGoals.as_view()),
 
 ]

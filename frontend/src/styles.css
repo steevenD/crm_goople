@@ -38,3 +38,11 @@
 .mt-10 {
   margin-top: 10px;
 }
+
+.alert {
+  position: fixed;
+  width: 300px;
+  text-align: center;
+  transform: translateX(-50%);
+  left: 50%;
+}
