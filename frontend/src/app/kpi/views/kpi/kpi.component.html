@@ -14,7 +14,7 @@
           <td *ngFor="let stat of stats">{{ stat.signed_sales }}</td>
         </tr>
         <tr>
-          <td class="pointer" (click)="setGraphBy('Nombre de 1er contact', 1) i18n="@@firstContactNbr"">Nombre de 1er contact</td>
+          <td class="pointer" (click)="setGraphBy('Nombre de 1er contact', 1)" i18n="@@firstContactNbr">Nombre de 1er contact</td>
           <td><input (keyup)="handleKeyupSetGoal('nb_contact', 1, $event)" type="number" [value]="goals[1]"/></td>
           <td *ngFor="let stat of stats">{{ stat.nb_contact }}</td>
         </tr>
