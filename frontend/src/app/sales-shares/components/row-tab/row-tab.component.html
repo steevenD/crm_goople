@@ -32,13 +32,13 @@
 </td>
 
 <td>
-  <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_source">
+  <select placeholder="Source de la vente" i18n-placeholder="@@salesSource" class="browser-default custom-select" formControlName="sale_source">
     <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}">{{saleS.label}}</option>
   </select>
 </td>
 
 <td>
-  <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_state">
+  <select placeholder="Statut de la vente" i18n-placeholder="@@salesStatus" class="browser-default custom-select" formControlName="sale_state">
     <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}">{{saleState.label}}</option>
   </select>
 </td>
@@ -60,10 +60,10 @@
   </td>
 
   <td>
-    <b>Crée KEY :</b>
+    <b i18n="@@created">Crée le :</b>
     <div>{{saleShare.dt_created}}</div>
     <br>
-    <b>Modifié :</b>
+    <b i18n="@@modified">Modifié le :</b>
     <div *ngIf="saleShare.dt_update != saleShare.dt_created">{{saleShare.dt_update}}</div>
   </td>
 

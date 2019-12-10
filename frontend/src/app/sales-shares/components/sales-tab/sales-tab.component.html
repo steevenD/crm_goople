@@ -3,22 +3,22 @@
     <app-add-sales class="btn-add" (notifyAdSale)="handleNotifyRefresh($event)"></app-add-sales>
   </div>
   <div>
-    <div *ngIf="displayAlert" class="alert alert-danger" role="alert">
-      ERREUR KEY
+    <div *ngIf="displayAlert" class="alert alert-danger" role="alert" i18n="@@error">
+      ERREUR
     </div>
     <div id="table" class="table-editable">
       <table class="table table-bordered table-responsive-md table-striped text-center">
         <tr>
-          <th class="text-center">Name School Key</th>
-          <th class="text-center">First name contact KEy / Lastname name contact KEy</th>
-          <th class="text-center">sale_action _state KEY</th>
-          <th class="text-center">sale_source KEY</th>
-          <th class="text-center">sale_state KEY</th>
-          <th class="text-center">dt_next_ action KEY</th>
-          <th class="text-center">amount_ signed KEY</th>
-          <th class="text-center">dt_ created KEY / dt_update KEY</th>
-          <th class="text-center">comment KEY</th>
-          <th class="text-center">attachments KEY</th>
+          <th class="text-center" i18n="@@schoolName">Nom de l'école</th>
+          <th class="text-center" i18n="@@names">Prénom et nom du contact</th>
+          <th class="text-center" i18n="@@salesActionStatus">Statut d'action de vente</th>
+          <th class="text-center" i18n="@@salesSource">Source de la vente</th>
+          <th class="text-center" i18n="@@salesStatus">Statut de la vente</th>
+          <th class="text-center" i18n="@@dateNextAction">Date prochaine action</th>
+          <th class="text-center" i18n="@@signedAmount">Montants signés</th>
+          <th class="text-center" i18n="@@dateCreatedUpdated">Date création / mise à jour</th>
+          <th class="text-center" i18n="@@comment">Commentaire</th>
+          <th class="text-center" i18n="@@attachement">Pièces jointes</th>
           <th class="text-center"></th>
         </tr>
         <tr app-row-tab *ngFor="let saleShare of saleShareList" [saleShare]="saleShare" (displayAlert)="handleDisplayAlert($event)" (notifyDelete)="handleNotifyRefresh($event)">

@@ -2,39 +2,43 @@
   <div *ngIf="displayAlert" class="alert alert-danger" role="alert">
     ERREUR KEY
   </div>
-  <p class="text-center" i18n>S'inscrire</p>
+  <p class="text-center" i18n="@@register">S'inscrire</p>
   <app-input
     [fGroup]="form"
     [fControl]="form.get('username')"
     [icon]="'id-badge'"
     [placeholder]="'Username'"
     [type]="'text'"
+    i18n-[placeholder]="@@username"
   ></app-input>
 
   <app-input
     [fGroup]="form"
     [fControl]="form.get('email')"
     [icon]="'envelope'"
-    [placeholder]="'mail'"
+    [placeholder]="'Email'"
     [type]="'email'"
+    i18n-[placeholder]="@@email"
   ></app-input>
 
   <app-input
     [fGroup]="form"
     [fControl]="form.get('password')"
     [icon]="'lock'"
-    [placeholder]="'mot de passe'"
+    [placeholder]="'Mot de passe'"
     [type]="'password'"
+    i18n-[placeholder]="@@password"
   ></app-input>
 
   <app-input
     [fGroup]="form"
     [fControl]="form.get('confirm_password')"
     [icon]="'lock'"
-    [placeholder]="'confirmer mot de passe'"
+    [placeholder]="'Confirmer le mot de passe'"
     [type]="'password'"
+    i18n-[placeholder]="@@pwdConfirm"
   ></app-input>
   <div class="text-center">
-    <button (click)="handleClickRegister()" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect i18n>S'inscrire</button>
+    <button (click)="handleClickRegister()" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect i18n="@@register">S'inscrire</button>
   </div>
 </div>

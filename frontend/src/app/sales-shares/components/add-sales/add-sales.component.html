@@ -1,12 +1,12 @@
 <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
-        (click)="frame.show()" mdbWavesEffect i18n>Ajouter action de vente</button>
+        (click)="frame.show()" mdbWavesEffect i18n="@@addSaleAction">Ajouter une action de vente</button>
 
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold" i18n>Ajouter une action de vente</h4>
+        <h4 class="modal-title w-100 font-weight-bold" i18n="@@addSaleAction">Ajouter une action de vente</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,33 +18,37 @@
               [fGroup]="form"
               [fControl]="form.get('name')"
               [icon]="'school'"
-              [placeholder]="'name school'"
+              [placeholder]="'Nom de l\'école'"
               [type]="'text'"
+              i18n-[placeholder]="@@schoolNamePH"
             ></app-input>
             <app-input
               [fGroup]="form"
               [fControl]="form.get('contact_firstname')"
               [icon]="'address-card'"
-              [placeholder]="'contact_firstname school'"
+              [placeholder]="'Prénom contact'"
               [type]="'text'"
+              i18n-[placeholder]="@@contactFirstnamePH"
             ></app-input>
             <app-input
               [fGroup]="form"
               [fControl]="form.get('contact_lastname')"
               [icon]="'address-card'"
-              [placeholder]="'contact_lastname school'"
+              [placeholder]="'Nom contact'"
               [type]="'text'"
+              i18n-[placeholder]="@@contactLastnamePH"
             ></app-input>
             <app-input
               [fGroup]="form"
               [fControl]="form.get('dt_next_action')"
               [icon]="'calendar-week'"
-              [placeholder]="'dt_next_action'"
+              [placeholder]="'Date prochaine action'"
               [type]="'date'"
+              i18n-[placeholder]="@@dateNaxtAction"
             ></app-input>
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_state">
-              <option value="" disabled selected i18n>Choose le status de la vente</option>
-              <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}">{{saleState.label}}</option>
+              <option value="" disabled selected i18n="@@chooseSaleStatus">Choisir le statut de la vente</option>
+              <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}" i18n="@@salesActions">{saleState.label, select, Abandon {Abandon} Premier contact {Premier contact} Négotiation {Négotiation} Proposition {Proposition} Refus {Refus} Relance {Relance} Gagné {Gagné}}</option>
             </select>
           </div>
           <div class="w-50 ml-20 right-part">
@@ -52,28 +56,29 @@
               [fGroup]="form"
               [fControl]="form.get('amount_signed')"
               [icon]="'euro-sign'"
-              [placeholder]="'amount_signed'"
+              [placeholder]="'Montant signé'"
               [type]="'text'"
+              i18n-[placeholder]="@@signedAmountPH"
             ></app-input>
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_source">
-              <option value="" disabled selected i18n>Choose le status de la vente</option>
-              <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}">{{saleS.label}}</option>
+              <option value="" disabled selected i18n="@@chooseSaleSource">Choisir la source de la vente</option>
+              <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}" i18n="@@salesSources">{saleS.label, select, Démarchage {Démarchage} Appel entrant {Appel entrant} Salon {Salon} Réseau {Réseau} Bouche à oreille {Bouche à oreille}}</option>
             </select>
             <div class="md-form">
               <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon>
               <textarea type="text" id="form8" class="md-textarea form-control" formControlName="comment" mdbInput></textarea>
-              <label for="form8" i18n>Comment</label>
+              <label for="form8" i18n="@@comment">Commentaire</label>
             </div>
             <select placeholder="Status de la vente key" class="browser-default custom-select" formControlName="sale_action_state">
-              <option value="" disabled selected i18n>Choose le status de la vente</option>
-              <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}">{{saleAS.label}}</option>
+              <option value="" disabled selected i18n="@@chooseSaleActionStatus">Choisir le statut de l'action de la vente</option>
+              <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}" i18n="@@salesActionStates">{saleAS.label, select, Fini {Fini} En cours {En cours} Pause {Pause} Stoppé {Stoppé} A faire {A faire}}</option>
             </select>
             <div class="custom-file" *ngIf="attachments.length < 3">
               <input type="file" class="custom-file-input" (change)="onFileChange($event)" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose file KEY</label>
+              <label class="custom-file-label" for="customFile" i18n="@@chooseFile">Choisir un fichier</label>
             </div>
-            <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3 || errorPDF">
-              3 pieces jointes maximums et PDF uniquement KEY
+            <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3 || errorPDF " i18n="@@maxJoints">
+              3 pièces jointes maximum
             </div>
           </div>
         </div>
@@ -85,7 +90,7 @@
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn [disabled]="form.invalid" (click)="handleClickAddSale(); frame.hide();" color="default" class="waves-light" mdbWavesEffect>Ajouter l'action de vente KEY</button>
+        <button mdbBtn [disabled]="form.invalid" (click)="handleClickAddSale(); frame.hide();" color="default" class="waves-light" mdbWavesEffect i18n="@@addSaleAction">Ajouter une action de vente</button>
       </div>
     </div>
   </div>

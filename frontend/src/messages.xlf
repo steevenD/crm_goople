@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="crmManagment" datatype="html">
+        <source>Gérer mon CRM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Se Connecter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/login/login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register" datatype="html">
+        <source>S&apos;inscrire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/register/register.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/register/register.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>Se déconnecter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="msgStartRevizor" datatype="html">
+        <source>Commencez à gérer le CRM Revizor en vous connectant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/views/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="username" datatype="html">
+        <source>&apos;Username&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/register/register.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>&apos;Email&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/register/register.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>&apos;Mot de passe&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/register/register.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pwdConfirm" datatype="html">
+        <source>&apos;Confirmer le mot de passe&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/views/register/register.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorRequired" datatype="html">
+        <source>Erreur : requis</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/input/input.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorLength" datatype="html">
+        <source>Erreur : taille</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/input/input.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorNumber" datatype="html">
+        <source>Erreur : nombre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/input/input.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="yourSalesActions" datatype="html">
+        <source>Vos actions de ventes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/views/sales-shares/sales-shares.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addSaleAction" datatype="html">
+        <source>Ajouter une action de vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="schoolNamePH" datatype="html">
+        <source>&apos;Nom école&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactFirstnamePH" datatype="html">
+        <source>&apos;Prénom contact&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactLastnamePH" datatype="html">
+        <source>&apos;Nom contact&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dateNaxtAction" datatype="html">
+        <source>&apos;Date prochaine action&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseSaleStatus" datatype="html">
+        <source>Choisir le statut de la vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="salesActions" datatype="html">
+        <source>{VAR_SELECT, select, label {label} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signedAmountPH" datatype="html">
+        <source>&apos;Montant signé&apos;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseSaleSource" datatype="html">
+        <source>Choisir la source de la vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="salesSources" datatype="html">
+        <source>{VAR_SELECT, select, label {label} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="comment" datatype="html">
+        <source>Commentaire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseSaleActionStatus" datatype="html">
+        <source>Choisir le statut de l&apos;action de la vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="salesActionStates" datatype="html">
+        <source>{VAR_SELECT, select, label {label} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseFile" datatype="html">
+        <source>Choisir un fichier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="maxJoints" datatype="html">
+        <source>
+              3 pièces jointes maximum
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="objectif" datatype="html">
+        <source>Objectif</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signedAmounts" datatype="html">
+        <source>Montants signés</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstContactNbr" datatype="html">
+        <source>Nombre de 1er contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wonSalesNbr" datatype="html">
+        <source>Nombre de ventes gagnées</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="gaveUpSalesNbr" datatype="html">
+        <source>Nombre de ventes abandonnées</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error" datatype="html">
+        <source>
+      ERREUR
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="schoolName" datatype="html">
+        <source>Nom de l&apos;école</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="names" datatype="html">
+        <source>Prénom et nom du contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="salesActionStatus" datatype="html">
+        <source>Statut d&apos;action de vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="salesSource" datatype="html">
+        <source>Source de la vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/row-tab/row-tab.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="salesStatus" datatype="html">
+        <source>Statut de la vente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/row-tab/row-tab.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dateNextAction" datatype="html">
+        <source>Date prochaine action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signedAmount" datatype="html">
+        <source>Montants signés</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dateCreatedUpdated" datatype="html">
+        <source>Date création / mise à jour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="attachement" datatype="html">
+        <source>Pièces jointes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/sales-tab/sales-tab.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="created" datatype="html">
+        <source>Crée le :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/row-tab/row-tab.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modified" datatype="html">
+        <source>Modifié le :</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/sales-shares/components/row-tab/row-tab.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
