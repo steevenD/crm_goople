@@ -35,19 +35,19 @@ class GetStats(generics.CreateAPIView):
                 sale_in_six_month.append(sale)
 
         for s in sale_in_six_month :
-            
+            print((datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"))
 
-            if self.date_n_month(0).strftime("%Y-%m") == (datetime.strptime(sale["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
+            if self.date_n_month(0).strftime("%Y-%m") == (datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
                 month_1.append(s)
-            if self.date_n_month(1).strftime("%Y-%m") == (datetime.strptime(sale["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
+            if self.date_n_month(1).strftime("%Y-%m") == (datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
                 month_2.append(s)
-            if self.date_n_month(2).strftime("%Y-%m") == (datetime.strptime(sale["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
+            if self.date_n_month(2).strftime("%Y-%m") == (datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
                 month_3.append(s)
-            if self.date_n_month(3).strftime("%Y-%m") == (datetime.strptime(sale["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
+            if self.date_n_month(3).strftime("%Y-%m") == (datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
                 month_4.append(s)
-            if self.date_n_month(4).strftime("%Y-%m") == (datetime.strptime(sale["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
+            if self.date_n_month(4).strftime("%Y-%m") == (datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
                 month_5.append(s)
-            if self.date_n_month(5).strftime("%Y-%m") == (datetime.strptime(sale["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
+            if self.date_n_month(5).strftime("%Y-%m") == (datetime.strptime(s["dt_created"][:7], "%Y-%m")).strftime("%Y-%m"):
                 month_6.append(s)
 
         
