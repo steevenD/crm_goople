@@ -3,32 +3,32 @@ Dans le cadre du module Python de 2ème année de Master, nous devions réaliser
 
 # Architecture de l'application
 L'application Angular a été découpé en différents dossiers :
-* authentication -> incription / connexion  
-* home -> page d'accueil
-* kpi -> statistiques sous forme de graphique, définition des objectifs
-* sales-shares -> gestions des actions de vente
-* shared -> dossier contenant les composants, services partagées dans les dossiers ci-dessus comme les "toast" de notification, la barre de navigation, ...
+* **authentication** -> incription / connexion  
+* **home** -> page d'accueil
+* **kpi** -> statistiques sous forme de graphique, définition des objectifs
+* **sales-shares** -> gestions des actions de vente
+* **shared** -> dossier contenant les composants, services partagées dans les dossiers ci-dessus comme les "toast" de notification, la barre de navigation, ...
 
 Ces dossiers sont eux-même découpés avec les sous-dossiers: 
-* views -> contenant les vues principales des dossiers, ce sont les composants "route"
-* components -> contenant les composants de la vue principales
-* services
-* models
+* **views** -> contenant les vues principales des dossiers, ce sont les composants "route"
+* **components** -> contenant les composants de la vue principales
+* **services**
+* **models**
 
 J'ai décidé d'utiliser ce découpage car il est clair et c'est celui que j'utilise en entreprise.
 
 La partie Django est découpé en plusieurs applications : 
-* crm_analyzer -> partie forme de graphique, définition des objectifs
-* crm_authentication -> partie inscription et connexion
-* crm_backend -> application principale
-* crm_editor -> partie gestion des actions de vente
+* **crm_analyzer** -> partie forme de graphique, définition des objectifs
+* **crm_authentication** -> partie inscription et connexion
+* **crm_backend** -> application principale
+* **crm_editor** -> partie gestion des actions de vente
 
 ### Schéma architecture de l'application
 <img src="https://www.zupimages.net/up/19/51/vh8l.png" width="650">
 
-* LoginComponent / RegisterComponent -> Composants "view" de connexion et d'inscription appelant crm_authentication
-* SalesSharesComposant -> Composant "view" contentant le composant avec le tableau des actions de ventes (SalesTabComponent) qui lui-même contient le composant d'ajout (AddSaleComponent) et les lignes éditables du tableau (RowSaleComponent). Ces composants appelent l'application Django crm_editor.
-* KPIComponent -> Composant "view" appelant l'application Django  crm_analyzer
+* **LoginComponent / RegisterComponent** -> Composants "view" de connexion et d'inscription appelant crm_authentication
+* **SalesSharesComposant** -> Composant "view" contentant le composant avec le tableau des actions de ventes (SalesTabComponent) qui lui-même contient le composant d'ajout (AddSaleComponent) et les lignes éditables du tableau (RowSaleComponent). Ces composants appelent l'application Django crm_editor.
+* **KPIComponent** -> Composant "view" appelant l'application Django  crm_analyzer
 
 
 # Prérequis
