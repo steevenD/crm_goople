@@ -52,7 +52,7 @@ La partie Django est découpé en plusieurs applications :
 
 
 ## Tests unitaires Angular
-Les tests unitaires Angular sont réalisés grâce au framework Jasmine/Karma
+Les tests unitaires Angular sont réalisés grâce au framework Jasmine/Karma.<br> 
 Lancez la commande `npm run test` pour lancer les tests unitaires.
 
 # Traduction
