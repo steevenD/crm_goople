@@ -5,7 +5,7 @@ import time
 from selenium.webdriver.support.ui import Select
 import random
 
-browser = webdriver.Chrome(executable_path=r"C:\Users\SteevenD\Downloads\chromedriver_win\chromedriver.exe")
+browser = webdriver.Chrome(executable_path=r".\chromedriver.exe")
 browser.get("http://localhost:4200")
 
 name = names.get_first_name() + "_" + names.get_last_name()
