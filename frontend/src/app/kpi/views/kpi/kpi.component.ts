@@ -37,7 +37,7 @@ export class KpiComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.kpiService.getDataStatistic().subscribe((stats) => this.stats = stats);
+    this.kpiService.getDataStatistic().subscribe((stats) => this.stats = stats.reverse());
     this.infoService.showToast('graphOnClick', 3000);
 
     this.kpiService.getGoals().subscribe((goals: any[]) => {

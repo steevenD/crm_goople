@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { InfoService } from './info.service';
 
-describe('InfoService', () => {
+xdescribe('InfoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

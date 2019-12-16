@@ -21,7 +21,6 @@ import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import { SalesTabComponent } from './sales-shares/components/sales-tab/sales-tab.component';
 import { RowTabComponent } from './sales-shares/components/row-tab/row-tab.component';
-import { InfoAlertComponent } from './shared/components/info-alert/info-alert.component';
 import { InfoComponent } from './shared/components/info/info.component';
 import {InfoService} from './shared/services/info.service';
 import {InterceptorService} from './shared/services/interceptor.service';
@@ -42,7 +41,6 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     KpiComponent,
     SalesTabComponent,
     RowTabComponent,
-    InfoAlertComponent,
     InfoComponent
   ],
   imports: [

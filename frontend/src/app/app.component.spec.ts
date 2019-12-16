@@ -1,12 +1,24 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {MockComponent} from 'ng-mocks';
+import {NavbarComponent} from './shared/components/navbar/navbar.component';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {InfoComponent} from './shared/components/info/info.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, MockComponent(NavbarComponent),
+        MockComponent(InfoComponent)
       ],
+      imports: [
+        BrowserModule,
+        RouterModule.forRoot([]),
+        FormsModule
+      ]
     }).compileComponents();
   }));
 
@@ -20,12 +32,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('frontend');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to frontend!');
   });
 });

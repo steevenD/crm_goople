@@ -259,7 +259,7 @@
       </trans-unit>
       <trans-unit id="maxJoints" datatype="html">
         <source>
-              3 pièces jointes maximum
+              3 pièces jointes maximum ou fichier PDF
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>

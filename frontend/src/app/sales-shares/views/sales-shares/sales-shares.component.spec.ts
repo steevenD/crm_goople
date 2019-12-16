@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SalesSharesComponent } from './sales-shares.component';
+import {SalesTabComponent} from '../../components/sales-tab/sales-tab.component';
+import {MockComponent} from 'ng-mocks';
 
 describe('SalesSharesComponent', () => {
   let component: SalesSharesComponent;
@@ -8,7 +10,7 @@ describe('SalesSharesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SalesSharesComponent ]
+      declarations: [ SalesSharesComponent, MockComponent(SalesTabComponent) ]
     })
     .compileComponents();
   }));

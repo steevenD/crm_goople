@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {AuthenticationService} from '../../../authentication/services/authentication.service';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule} from '@angular/router';
+import {FormBuilder, FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +14,11 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [ NavbarComponent ],
+      providers: [AuthenticationService, FormBuilder],
+      imports: [MDBBootstrapModule, BrowserModule,
+        RouterModule.forRoot([]), HttpClientModule,
+        FormsModule]
     })
     .compileComponents();
   }));

@@ -283,8 +283,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="maxJoints" datatype="html">
-        <source>3 pièces jointes maximum</source>
-        <target>3 attachments maximum</target>
+        <source>3 pièces jointes maximum ou fichier PDF</source>
+        <target>3 attachments maximum or not is PDF file</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/sales-shares/components/add-sales/add-sales.component.html</context>
           <context context-type="linenumber">75</context>

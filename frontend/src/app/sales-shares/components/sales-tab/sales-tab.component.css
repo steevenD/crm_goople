@@ -1,4 +1,8 @@
 th {
   vertical-align: middle;
   border: solid 2px lightgray;
+  position: sticky;
+  top: 45px;
+  background: #eee;
 }
+

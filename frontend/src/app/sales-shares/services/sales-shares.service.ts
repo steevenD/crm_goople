@@ -104,8 +104,7 @@ export class SalesSharesService {
   }
 
   updateSale(id: number, saleShareForm: any) {
-    console.log(httpOptions);
-    let saleShare = this.transformSaleShareFormToSaleShare(saleShareForm);
+    const saleShare = this.transformSaleShareFormToSaleShare(saleShareForm);
     return this.http.put<SaleShare>(`${urlAPI}/editor_crm/${id}`, saleShare , httpOptions);
   }
 
