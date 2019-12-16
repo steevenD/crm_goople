@@ -114,7 +114,6 @@ export class SalesSharesService {
   }
 
   deleteAttachment(id: number) {
-    alert('dff');
     return this.http.delete<any>(`${urlAPI}/attachments/${id}`, httpOptions);
   }
 
