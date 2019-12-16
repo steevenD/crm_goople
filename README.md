@@ -10,15 +10,15 @@ L'application Angular a été découpé en différents dossiers :
 * **shared** -> dossier contenant les composants, services partagées dans les dossiers ci-dessus comme les "toast" de notification, la barre de navigation, ...
 
 Ces dossiers sont eux-même découpés avec les sous-dossiers: 
-* **views** -> contenant les vues principales des dossiers, ce sont les composants "route"
-* **components** -> contenant les composants de la vue principales
-* **services**
-* **models**
+* **views** -> contient les vues principales des dossiers, ce sont les composants "route"
+* **components** -> contient les composants de la vue principales
+* **services** -> contient les services
+* **models** -> contient les modèles
 
 J'ai décidé d'utiliser ce découpage car il est clair et c'est celui que j'utilise en entreprise.
 
 La partie Django est découpé en plusieurs applications : 
-* **crm_analyzer** -> partie forme de graphique, définition des objectifs
+* **crm_analyzer** -> partie statistiques, définition des objectifs
 * **crm_authentication** -> partie inscription et connexion
 * **crm_backend** -> application principale
 * **crm_editor** -> partie gestion des actions de vente
@@ -26,9 +26,9 @@ La partie Django est découpé en plusieurs applications :
 ### Schéma architecture de l'application
 <img src="https://www.zupimages.net/up/19/51/vh8l.png" width="650">
 
-* **LoginComponent / RegisterComponent** -> Composants "view" de connexion et d'inscription appelant crm_authentication
-* **SalesSharesComposant** -> Composant "view" contentant le composant avec le tableau des actions de ventes (SalesTabComponent) qui lui-même contient le composant d'ajout (AddSaleComponent) et les lignes éditables du tableau (RowSaleComponent). Ces composants appelent l'application Django crm_editor.
-* **KPIComponent** -> Composant "view" appelant l'application Django  crm_analyzer
+* **LoginComponent / RegisterComponent** -> Composants "view" de connexion et d'inscription appelant l'application Django **crm_authentication**.
+* **SalesSharesComposant** -> Composant "view" contentant le composant avec le tableau des actions de ventes (SalesTabComponent) qui lui-même contient le composant d'ajout (AddSaleComponent) et les lignes éditables du tableau (RowSaleComponent). Ces composants appelent l'application Django **crm_editor**.
+* **KPIComponent** -> Composant "view" appelant l'application Django **crm_analyzer**.
 
 
 # Prérequis
@@ -65,8 +65,7 @@ Les tests unitaires Angular sont réalisés grâce au framework Jasmine/Karma.<b
 Lancez la commande `npm run test` pour lancer les tests unitaires.
 
 # Traduction
-La traduction s'exécute via le module i18n qui récupère les élément via un un attribut dans une balise html.
-Un document pour chaque langue peut être rédigée.
+La traduction s'exécute via le module i18n qui récupère les éléments via un un attribut dans une balise html.
+Un document pour chaque langue peut être rédigé.
 
-Pour lancer simplement la traduction anglais par exemple, utiliser la commande :
-* `ng serve --configuration=en`
+Pour lancer la traduction anglaise : `ng serve --configuration=en`
