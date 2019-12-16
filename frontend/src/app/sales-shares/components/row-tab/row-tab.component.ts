@@ -33,7 +33,7 @@ export class RowTabComponent implements OnInit {
     this.form = this.saleService.generateFormAddSale();
 
     this.saleShare.dt_created = moment(this.saleShare.dt_created.substr(0, 19)).format('D/MM/YYYY HH:mm:ss');
-    this.saleShare.dt_update = moment().format('D/MM/YYYY HH:mm:ss');
+    this.saleShare.dt_update = moment(this.saleShare.dt_update).format('D/MM/YYYY HH:mm:ss');
 
     this.initForm();
 
