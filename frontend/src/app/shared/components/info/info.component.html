@@ -1,3 +1,3 @@
 <div *ngIf="viewModel?.toast$ | async"  class="alert alert-primary toast-container" role="alert">
-  <p [innerHTML]="viewModel.content" class="text-center"></p>
+  <p class="text-center" i18n="@@infoToast">{viewModel.content, select, registerOkConnect {Inscription réussie, connectez-vous !} graphOnClick {Cliquez sur une ligne pour voir le graphique correspondant} update {Mis à jour !} addSale {Vente ajoutée !} deleteAttachment {Pièce jointe supprimée !} deleteSale {Vente Supprimée !}}</p>
 </div>
