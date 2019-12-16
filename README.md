@@ -23,8 +23,7 @@ La partie Django est découpé en plusieurs applications :
 * crm_editor -> partie gestion des actions de vente
 
 
-<img src="https://www.zupimages.net/up/19/51/vh8l.png" width="250">
-<img src="https://zupimages.net/viewer.php?id=19/51/vh8l.png" width="250" />
+<img src="https://www.zupimages.net/up/19/51/vh8l.png" width="650">
 
 # Prérequis
 * node v12.13.0
