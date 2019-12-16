@@ -1,7 +1,8 @@
 # Description de l'application 
 Dans le cadre du module Python de 2ème année de Master, nous devions réaliser une application CRM avec un Front Angular et un Back Django.
 
-L'application Angular a été découpé en différent dossier :
+# Architecture de l'application
+L'application Angular a été découpé en différents dossiers :
 * authentication -> incription / connexion  
 * home -> page d'accueil
 * kpi -> statistiques sous forme de graphique, définition des objectifs
@@ -17,13 +18,18 @@ Ces dossiers sont eux-même découpés avec les sous-dossiers:
 J'ai décidé d'utiliser ce découpage car il est clair et c'est celui que j'utilise en entreprise.
 
 La partie Django est découpé en plusieurs applications : 
-* crm_analyser -> partie forme de graphique, définition des objectifs
+* crm_analyzer -> partie forme de graphique, définition des objectifs
 * crm_authentication -> partie inscription et connexion
 * crm_backend -> application principale
 * crm_editor -> partie gestion des actions de vente
 
-
+### Schéma architecture de l'application
 <img src="https://www.zupimages.net/up/19/51/vh8l.png" width="650">
+
+* LoginComponent / RegisterComponent -> Composants "view" de connexion et d'inscription appelant crm_authentication
+* SalesSharesComposant -> Composant "view" contentant le composant avec le tableau des actions de ventes (SalesTabComponent) qui lui-même contient le composant d'ajout (AddSaleComponent) et les lignes éditables du tableau (RowSaleComponent). Ces composants appelent l'application Django crm_editor.
+* KPIComponent -> Composant "view" appelant l'application Django  crm_analyzer
+
 
 # Prérequis
 * node v12.13.0
@@ -33,21 +39,22 @@ La partie Django est découpé en plusieurs applications :
 # Lancement de l'application 
 
 ## Lancement du backend Django
-* cd backend 
-* pipenv shell
-* cd crm_backend
-* manage.py runserver
+* `cd backend` 
+* `pipenv shell`
+* `cd crm_backend`
+* `manage.py runserver`
 
 ## Lancement du frontend Angular
-* cd frontend
-* npm install
-* npm start
+* `cd frontend`
+* `npm install`
+* `npm start`
 * Ouvrir un navigateur sur localhost:4200
 
 
 # Lancement des tests 
 
 ## Selenium 
+**Avoir une version de Chrome v78**
 
 
 ## Tests unitaires Python
