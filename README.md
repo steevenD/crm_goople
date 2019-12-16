@@ -24,7 +24,7 @@ La partie Django est découpé en plusieurs applications :
 
 
 
-<img src="https://gitlab.com/steevendemay/crm/blob/master/architecture_technique.png" width=250 />
+<img src="https://zupimages.net/viewer.php?id=19/51/vh8l.png" width=250 />
 
 # Prérequis
 * node v12.13.0
