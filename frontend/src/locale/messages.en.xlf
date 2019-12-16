@@ -435,6 +435,22 @@
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="graphDatas" datatype="html">
+        <source>{VAR_SELECT, select.name, label {label} }</source>
+        <target>{VAR_SELECT, select.name, label {label} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="graphXAxisLabel" datatype="html">
+        <source>{VAR_SELECT, select, label {label} }</source>
+        <source>{VAR_SELECT, select, Mois {Months} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/kpi/views/kpi/kpi.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
