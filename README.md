@@ -56,3 +56,8 @@ Les tests unitaires Angular sont réalisés grâce au framework Jasmine/Karma.<b
 Lancez la commande `npm run test` pour lancer les tests unitaires.
 
 # Traduction
+La traduction s'exécute via le module i18n qui récupère les élément via un un attribut dans une balise html.
+Un document pour chaque langue peut être rédigée.
+
+Pour lancer simplement la traduction anglais par exemple, utiliser la commande :
+* `ng serve --configuration=en`
