@@ -23,8 +23,8 @@ La partie Django est découpé en plusieurs applications :
 * crm_editor -> partie gestion des actions de vente
 
 
-![alt text](https://gitlab.com/steevendemay/crm/blob/master/architecture_technique.png)
 
+<img src="https://gitlab.com/steevendemay/crm/blob/master/architecture_technique.png" width=250 />
 
 # Prérequis
 * node v12.13.0
