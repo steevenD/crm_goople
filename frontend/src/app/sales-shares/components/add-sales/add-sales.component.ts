@@ -67,7 +67,7 @@ export class AddSalesComponent implements OnInit {
   handleClickAddSale() {
     this.salesSharesService.addSaleShare(this.form.value, this.attachments).subscribe(() => {
       this.notifyAdSale.emit(true);
-        this.infoService.showToast('AjoutSale');
+        this.infoService.showToast('addSale');
 
       },
       (err) => console.log(err),

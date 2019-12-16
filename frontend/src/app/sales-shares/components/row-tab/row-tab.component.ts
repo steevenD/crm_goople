@@ -72,7 +72,7 @@ export class RowTabComponent implements OnInit {
       if (this.form.valid) {
         this.saleService.updateSale(this.saleShare.id, this.form.value).subscribe(() => {
           this.saleShare.dt_update = moment().format('D/MM/YYYY HH:mm:ss');
-          this.infoService.showToast('MiseAjour!!');
+          this.infoService.showToast('update');
         });
       } else {
         this.displayAlert.emit(true);
@@ -86,7 +86,7 @@ export class RowTabComponent implements OnInit {
   handleClickDeleteAttachment(attachment: any){
     this.saleService.deleteAttachment(attachment.id).subscribe(() => {
         this.notifyDelete.emit(true);
-        this.infoService.showToast('SuprimerAtraduire!!');
+        this.infoService.showToast('deleteAttachment');
       }, (err) => console.log(err),
       () => this.notifyDelete.emit(false));
   }
@@ -94,7 +94,7 @@ export class RowTabComponent implements OnInit {
   handleClickDelete() {
     this.saleService.deleteSaleShare(this.saleShare.id).subscribe(() => {
       this.notifyDelete.emit(true);
-        this.infoService.showToast('SuprimerSaleAtraduire!!');
+        this.infoService.showToast('deleteSale');
       }, (err) => console.log(err),
       () => this.notifyDelete.emit(false));
   }

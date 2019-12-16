@@ -27,19 +27,19 @@
 
 <td>
   <select class="browser-default custom-select" formControlName="sale_action_state">
-    <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}">{{saleAS.label}}</option>
+    <option *ngFor="let saleAS of saleActionStateTab" value="{{saleAS.value}}" i18n="@@salesActionStates">{saleAS.label, select, Fini {Fini} En cours {En cours} Pause {Pause} Stoppé {Stoppé} A faire {A faire}}</option>
   </select>
 </td>
 
 <td>
   <select placeholder="Source de la vente" i18n-placeholder="@@salesSource" class="browser-default custom-select" formControlName="sale_source">
-    <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}">{{saleS.label}}</option>
+    <option *ngFor="let saleS of saleSourceTab" value="{{saleS.value}}" i18n="@@salesSources">{saleS.label, select, Démarchage {Démarchage} Appel entrant {Appel entrant} Salon {Salon} Réseau {Réseau} Bouche à oreille {Bouche à oreille}}</option>
   </select>
 </td>
 
 <td>
   <select placeholder="Statut de la vente" i18n-placeholder="@@salesStatus" class="browser-default custom-select" formControlName="sale_state">
-    <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}">{{saleState.label}}</option>
+    <option *ngFor="let saleState of saleStateTab" value="{{saleState.value}}" i18n="@@salesActions">{saleState.label, select, Abandon {Abandon} Premier contact {Premier contact} Négotiation {Négotiation} Proposition {Proposition} Refus {Refus} Relance {Relance} Gagné {Gagné}}</option>
   </select>
 </td>
 

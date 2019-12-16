@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   handleClickRegister() {
     if (this.form.get('password').value === this.form.get('confirm_password').value) {
       this.authenticationService.register(this.form.value).subscribe(() => {
-        this.infoService.showToast('InscriptionOKConnectéVous');
+        this.infoService.showToast('registerOkConnect');
         this.router.navigate(['login']);
       }, (err) => this.displayAlertRegister());
     } else {

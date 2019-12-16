@@ -38,7 +38,7 @@ export class KpiComponent implements OnInit {
   }
   ngOnInit() {
     this.kpiService.getDataStatistic().subscribe((stats) => this.stats = stats);
-    this.infoService.showToast('ClicSurLignePourGraph', 3000);
+    this.infoService.showToast('graphOnClick', 3000);
 
     this.kpiService.getGoals().subscribe((goals: any[]) => {
       for (const goal of goals) {
@@ -75,7 +75,7 @@ export class KpiComponent implements OnInit {
     this.kpiService.updateGoal(index + 1, newGoal).subscribe();
     this.goals[index] = newGoal;
     this.setGraphBy(column, index);
-    this.infoService.showToast('MisAjour');
+    this.infoService.showToast('update');
   }
 
 }
