@@ -56,6 +56,8 @@ La partie Django est découpé en plusieurs applications :
 ## Selenium 
 **Avoir une version de Chrome v78**
 
+## Fichiers de test
+Des fichiers de test sont présents dans le dossier **backend/files_test**
 
 ## Tests unitaires Python
 
