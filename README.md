@@ -56,6 +56,9 @@ La partie Django est découpé en plusieurs applications :
 
 ## Selenium 
 **Avoir une version de Chrome v78**
+**Sortir du pipenv shell**
+* `cd backend` 
+* `python.py test_ui_selenium.py`
 
 ## Fichiers de test
 Des fichiers de test sont présents dans le dossier **backend/files_test**
