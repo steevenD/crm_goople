@@ -12,6 +12,9 @@
         </button>
       </div>
       <div class="modal-body mx-3">
+        <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3 || errorPDF " i18n="@@maxJoints">
+          3 pièces jointes maximum ou fichier PDF
+        </div>
         <div class="md-form mb-5 flex mb-0" [formGroup]="form">
           <div class="w-50 mr-20">
             <app-input
@@ -76,9 +79,6 @@
             <div class="custom-file" *ngIf="attachments.length < 3">
               <input type="file" class="custom-file-input" (change)="onFileChange($event)" id="customFile">
               <label class="custom-file-label" for="customFile" i18n="@@chooseFile">Choisir un fichier</label>
-            </div>
-            <div class="alert alert-danger mt-10" role="alert" *ngIf="attachments.length === 3 || errorPDF " i18n="@@maxJoints">
-              3 pièces jointes maximum ou fichier PDF
             </div>
           </div>
         </div>
