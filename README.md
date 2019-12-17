@@ -44,6 +44,9 @@ La partie Django est découpé en plusieurs applications :
 * `pipenv install`
 * `cd crm_backend`
 * `manage.py runserver`
+* serveur lancé sur le port 8000
+
+Le panneau admin se trouve sur **localhost:8000/admin** 
 
 ## Lancement du frontend Angular
 * `cd frontend`
