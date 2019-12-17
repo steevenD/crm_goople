@@ -41,6 +41,7 @@ La partie Django est découpé en plusieurs applications :
 ## Lancement du backend Django
 * `cd backend` 
 * `pipenv shell`
+* `pipenv install`
 * `cd crm_backend`
 * `manage.py runserver`
 
