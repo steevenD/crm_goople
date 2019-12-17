@@ -61,6 +61,11 @@ Des fichiers de test sont présents dans le dossier **backend/files_test**
 
 ## Tests unitaires Python
 
+Executer la commande après que le back-end Django soit lancé : 
+
+* `cd backend` 
+* `cd crm_backend`
+* `manage.py test`
 
 ## Tests unitaires Angular
 Les tests unitaires Angular sont réalisés grâce au framework Jasmine/Karma.<br> 
