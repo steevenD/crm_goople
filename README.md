@@ -55,7 +55,7 @@ La partie Django est découpé en plusieurs applications :
 # Lancement des tests 
 
 ## Selenium 
-**Avoir une version de Chrome v78**
+**Avoir une version de Chrome v78** <br>
 **Sortir du pipenv shell**
 * `cd backend` 
 * `python.py test_ui_selenium.py`
